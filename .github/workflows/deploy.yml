@@ -16,7 +16,6 @@ jobs:
 
       - name: Copy app to EC2
         uses: appleboy/scp-action@v0.1.4
-        debug: True
         with:
           host: ${{ secrets.EC2_HOST }}
           username: "ec2-user"
@@ -24,6 +23,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "./Dockerfile ./app.py ./requirements.txt"
           target: ~/message_server/
+          debug: True
 
       - name: Build and run on EC2
         uses: appleboy/ssh-action@v1.0.3
