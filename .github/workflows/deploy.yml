@@ -21,8 +21,8 @@ jobs:
           username: "ec2-user"
           port: 22
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "./Dockerfile, ./app.py, ./requirements.txt"
-          target: ~/.
+          source: "./Dockerfile ./app.py ./requirements.txt"
+          target: ~/message_server/
 
       - name: Build and run on EC2
         uses: appleboy/ssh-action@v1.0.3
