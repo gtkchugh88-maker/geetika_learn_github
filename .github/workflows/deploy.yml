@@ -28,7 +28,10 @@ jobs:
           username: "ec2-user"
           port: 22
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "./Dockerfile, ./app.py, ./requirements.txt"
+          source: |
+            message_server/Dockerfile
+            message_server/app.py
+            message_server/requirements.txt
           target: ~/message_server/
           debug: True
 
